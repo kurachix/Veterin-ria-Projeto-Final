@@ -6,6 +6,7 @@ import random
 escolha_menu = 0
 
 def menu():
+    os.system("cls")
     print("Bem-vindo ao sistema de gerenciamento de animais!")
     print("1. Cadastrar Animais")
     print("2. Listar Animais")
@@ -13,6 +14,16 @@ def menu():
     print("4. Sair")
 
     escolha_menu = int(input("Escolha uma opção:\n-->"))
+
+    if escolha_menu == 1:
+        cadastrar_animal()
+    elif escolha_menu == 2:
+        listar_animais()
+    elif escolha_menu == 3:
+        atualizar_cadastro()
+    elif escolha_menu == 4:
+        print("Saindo do sistema...")
+        time.sleep(3)
 
     return escolha_menu
 
