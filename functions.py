@@ -7,13 +7,15 @@ escolha_menu = 0
 
 def menu():
     os.system("cls")
-    print("Bem-vindo ao sistema de gerenciamento de animais!")
+    print(50 * "-")
+    print("Bem-vindo ao sistema de gerenciamento de animais!".center(50))
+    print(50 * "-")
     print("1. Cadastrar Animais")
     print("2. Listar Animais")
     print("3. Atualizar Cadastro")
     print("4. Sair")
 
-    escolha_menu = int(input("Escolha uma opção:\n-->"))
+    escolha_menu = int(input("\nEscolha uma opção:\n-->"))
 
     if escolha_menu == 1:
         cadastrar_animal()
@@ -22,62 +24,88 @@ def menu():
     elif escolha_menu == 3:
         atualizar_cadastro()
     elif escolha_menu == 4:
-        print("Saindo do sistema...")
+        print("Saindo do sistema")
         time.sleep(3)
 
-    return escolha_menu
 
 def cadastrar_animal():
-    print("Cadastro de Animais")
+    os.system("cls")
+    print(50 * "-")
+    print("Cadastro de Animais".center(50))
+    print(50 * "-")
     nome = input("Digite o nome do animal: ")
+    os.system("cls")
     peso = float(input("Digite o peso do animal: "))
+    os.system("cls")
     cor = input("Digite a cor do animal: ")
+    os.system("cls")
 
-    print("Escolha o tipo de animal:")
+    print(50 * "-")
+    print("Escolha o tipo de animal:".center(50))
+    print(50 * "-")
     print("1. Roedor")
     print("2. Cachorro")
     print("3. Gato")
-    tipo_animal = int(input("Digite o número correspondente ao tipo de animal:"))
+    
+    tipo_animal = int(input("\nDigite o número correspondente ao tipo de animal:\n-->"))
 
     if tipo_animal == 1:
         animal = Roedores(nome, peso, cor)
         Roedores.Roedores.append(animal)
+        print("Animal cadastrado com sucesso!")
+        time.sleep(3)
     elif tipo_animal == 2:
         animal = Cachorro(nome, peso, cor)
         Cachorro.Cachorros.append(animal)
+        print("Animal cadastrado com sucesso!")
+        time.sleep(3)
     elif tipo_animal == 3:
         animal = Gato(nome, peso, cor)
         Gato.Gatos.append(animal)
+        print("Animal cadastrado com sucesso!")
+        time.sleep(3)
     else:
         print("Tipo de animal inválido!")
+        time.sleep(5)
 
 def listar_animais():
-    print("Listagem de Animais")
+    os.system("cls")
+    print(50 * "-")
+    print("Listagem de Animais".center(50))
+    print(50 * "-")
+
     print("Escolha o tipo de animal para listar:")
     print("1. Roedores")
     print("2. Cachorros")
     print("3. Gatos")
 
-    numero_listar = int(input("Digite o número correspondente ao tipo de animal:"))
+    numero_listar = int(input("\nDigite o número correspondente ao tipo de animal:\n-->"))
+
     if numero_listar == 1:
         for roedor in Roedores.Roedores:
             print(f"Nome: {roedor._Roedores__nome}, Peso: {roedor._Roedores__peso}, Cor: {roedor._Roedores__cor}")
+            os.system("pause")
     elif numero_listar == 2:
         for cachorro in Cachorro.Cachorros:
             print(f"Nome: {cachorro._Cachorro__nome}, Peso: {cachorro._Cachorro__peso}, Cor: {cachorro._Cachorro__cor}")
+            os.system("pause")
     elif numero_listar == 3:
         for gato in Gato.Gatos:
             print(f"Nome: {gato._Gato__nome}, Peso: {gato._Gato__peso}, Cor: {gato._Gato__cor}")
+            os.system("pause")
 
 
 def atualizar_cadastro():
-    print("Atualização de Cadastro")
+    os.system("cls")
+    print(50 * "-")
+    print("Atualização de Cadastro".center(50))
+    print(50 * "-")
     print("Escolha o tipo de animal para refazer o cadastro:")
     print("1. Roedores")
     print("2. Cachorros")
     print("3. Gatos")
 
-    numero_atualizar = int(input("Digite o número correspondente ao tipo de animal:"))
+    numero_atualizar = int(input("\nDigite o número correspondente ao tipo de animal:\n-->"))
     if numero_atualizar == 1:
         if Roedores.Roedores:
             for i, roedor in enumerate(Roedores.Roedores):
